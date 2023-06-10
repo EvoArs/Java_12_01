@@ -6,6 +6,7 @@ public class ShopRepositoryTest {
     Product product1 = new Product(01, "Куры", 200);
     Product product2 = new Product(02, "Млеко", 50);
     Product product3 = new Product(03, "Яйки", 100);
+
     @Test
     public void TestRemoveValidProduct() {
 

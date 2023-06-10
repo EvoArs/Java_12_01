@@ -50,6 +50,7 @@ public class ShopRepository {
             throw new NotFoundException("Нет товара с ID" + id);
         }
     }
+
     public Product findById(int id) {
         for (Product product : products) {
             if (product.getId() == id) {
