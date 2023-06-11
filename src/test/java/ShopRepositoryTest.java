@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ShopRepositoryTest {
@@ -7,12 +8,15 @@ public class ShopRepositoryTest {
     Product product2 = new Product(02, "Млеко", 50);
     Product product3 = new Product(03, "Яйки", 100);
 
-    @Test
-    public void TestRemoveValidProduct() {
-
+    @BeforeEach
+    public void allProduct() {
         repo.add(product1);
         repo.add(product2);
         repo.add(product3);
+    }
+
+    @Test
+    public void TestRemoveValidProduct() {
 
         repo.remove(03);
 
@@ -25,12 +29,8 @@ public class ShopRepositoryTest {
     @Test
     public void TestRemoveNotValidProduct() {
 
-        repo.add(product1);
-        repo.add(product2);
-        repo.add(product3);
-
         Assertions.assertThrows(NotFoundException.class,
-                () -> repo.removeById(05)
+                () -> repo.remove(05)
         );
     }
 }
